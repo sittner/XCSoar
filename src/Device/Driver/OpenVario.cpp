@@ -62,6 +62,11 @@ OpenVarioDevice::POV(NMEAInputLine &line, NMEAInfo &info)
    * R: total pressure in hPa
    * S: true airspeed in km/h
    * T: temperature in deg C
+   * V: battery voltage in V
+   * b: bank_angle in degrees
+   * p: pitch_angle in degrees 
+   * h: heading in degrees 
+   * g: G load
    */
 
   while (!line.IsEmpty()) {
@@ -101,6 +106,30 @@ OpenVarioDevice::POV(NMEAInputLine &line, NMEAInfo &info)
       case 'T': {
         info.temperature = CelsiusToKelvin(value);
         info.temperature_available = true;
+        break;
+      }
+      case 'V': {
+        info.voltage = value;
+        info.voltage_available.Update(info.clock);
+        break;
+      }
+      case 'b': {
+        info.attitude.bank_angle_available.Update(info.clock);
+        info.attitude.bank_angle = Angle::Degrees(value);
+        break;
+      }
+      case 'p': {
+        info.attitude.pitch_angle_available.Update(info.clock);
+        info.attitude.pitch_angle = Angle::Degrees(value);
+        break;
+      }
+      case 'h': {
+        info.attitude.heading_available.Update(info.clock);
+        info.attitude.heading = Angle::Degrees(value);
+        break;
+      }
+      case 'g': {
+        info.acceleration.ProvideGLoad(value, true);
         break;
       }
     }
