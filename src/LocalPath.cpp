@@ -407,6 +407,10 @@ GetHomeDataPath(TCHAR *gcc_restrict buffer, bool create=false)
 static TCHAR *
 FindDataPath()
 {
+#ifdef FIXED_DATADIR
+    return DuplicateString(_T(FIXED_DATADIR));
+#else
+
   if (IsAltair() && IsEmbedded()) {
     /* if XCSoarData exists on USB drive, use that, because the
        internal memory is extremely small */
@@ -508,6 +512,7 @@ FindDataPath()
   }
 
   return nullptr;
+#endif
 }
 
 void
