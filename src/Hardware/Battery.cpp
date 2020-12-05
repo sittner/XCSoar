@@ -187,7 +187,7 @@ UpdateBatteryInfo()
 
 #endif
 
-#if defined(ENABLE_SDL) && (SDL_MAJOR_VERSION >= 2)
+#if defined(ENABLE_SDL_BATTERY)
 
 #include <SDL_power.h>
 

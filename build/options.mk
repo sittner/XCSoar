@@ -62,3 +62,7 @@ endif
 ifneq ($(WGS84),n)
 TARGET_CPPFLAGS += -DUSE_WGS84
 endif
+
+ifdef FIXED_DATADIR
+TARGET_CPPFLAGS += -DFIXED_DATADIR=\"$(FIXED_DATADIR)\"
+endif

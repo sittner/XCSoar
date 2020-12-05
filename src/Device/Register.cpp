@@ -54,6 +54,7 @@ Copyright_License {
 #include "Device/Driver/OpenVario.hpp"
 #include "Device/Driver/Vaulter.hpp"
 #include "Device/Driver/ATR833.hpp"
+#include "Device/Driver/KRT2.hpp"
 #include "Util/Macros.hpp"
 #include "Util/StringAPI.hxx"
 
@@ -93,8 +94,7 @@ static const struct DeviceRegister *const driver_list[] = {
   &cai_lnav_driver,
   &open_vario_driver,
   &vaulter_driver,
-  /* disabled due to http://bugs.xcsoar.org/ticket/3585 and
-     http://bugs.xcsoar.org/ticket/3586 - scheduled for deletion */
+  &krt2_driver,
   &atr833_driver,
   nullptr
 };
