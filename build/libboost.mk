@@ -4,17 +4,17 @@ BOOST_CPPFLAGS = \
 	-DBOOST_NO_IOSFWD \
 	-DBOOST_NO_STRINGSTREAM \
 	-DBOOST_NO_WSTREAMBUF \
-	-isystem $(BOOST)/assert/include \
-	-isystem $(BOOST)/core/include \
-	-isystem $(BOOST)/detail/include \
-	-isystem $(BOOST)/functional/include \
-	-isystem $(BOOST)/function_types/include \
-	-isystem $(BOOST)/integer/include \
-	-isystem $(BOOST)/intrusive/include \
-	-isystem $(BOOST)/move/include \
-	-isystem $(BOOST)/mpl/include \
-	-isystem $(BOOST)/preprocessor/include \
-	-isystem $(BOOST)/static_assert/include \
-	-isystem $(BOOST)/tti/include \
-	-isystem $(BOOST)/type_traits/include \
-	-isystem $(BOOST)/config/include
+	-I$(BOOST)/assert/include \
+	-I$(BOOST)/core/include \
+	-I$(BOOST)/detail/include \
+	-I$(BOOST)/functional/include \
+	-I$(BOOST)/function_types/include \
+	-I$(BOOST)/integer/include \
+	-I$(BOOST)/intrusive/include \
+	-I$(BOOST)/move/include \
+	-I$(BOOST)/mpl/include \
+	-I$(BOOST)/preprocessor/include \
+	-I$(BOOST)/static_assert/include \
+	-I$(BOOST)/tti/include \
+	-I$(BOOST)/type_traits/include \
+	-I$(BOOST)/config/include

@@ -5,7 +5,7 @@ ifneq ($(ZLIB_PREFIX),)
 ZLIB_LDADD =
 ZLIB_LDLIBS = -L$(ZLIB_PREFIX)/lib -lz
 
-ZLIB_CPPFLAGS = -isystem$(ZLIB_PREFIX)/include
+ZLIB_CPPFLAGS = -I$(ZLIB_PREFIX)/include
 
 else ifeq ($(TARGET),UNIX)
 

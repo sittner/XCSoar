@@ -5,8 +5,8 @@ ifeq ($(LIBCXX),y)
 
 ifeq ($(TARGET),ANDROID)
 LIBCXX_CXXFLAGS = -nostdinc++ \
-	-isystem $(ANDROID_NDK)/sources/cxx-stl/llvm-libc++/include \
-	-isystem $(ANDROID_NDK)/sources/android/support/include \
+	-I$(ANDROID_NDK)/sources/cxx-stl/llvm-libc++/include \
+	-I$(ANDROID_NDK)/sources/android/support/include \
 	-DLIBCXX
   LIBCXX_LDADD = $(ANDROID_NDK)/sources/cxx-stl/llvm-libc++/libs/$(ANDROID_ABI3)/libc++_static.a \
 	$(ANDROID_NDK)/sources/cxx-stl/llvm-libc++/libs/$(ANDROID_ABI3)/libc++abi.a
@@ -23,7 +23,7 @@ endif
 else
 
 LIBCXX_CXXFLAGS_INTERNAL = -Wno-char-subscripts -Wno-sign-compare
-LIBCXX_CPPFLAGS = -nostdinc++ -isystem $(LIBCXX)/include -DLIBCXX
+LIBCXX_CPPFLAGS = -nostdinc++ -I$(LIBCXX)/include -DLIBCXX
 LIBCXX_SOURCES = \
 	$(SRC)/LibCXX.cpp \
 	$(LIBCXX)/src/algorithm.cpp \

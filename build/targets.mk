@@ -660,14 +660,14 @@ endif
 
 ifeq ($(TARGET_IS_PI),y)
   ifneq ($(PI),)
-    TARGET_CPPFLAGS += --sysroot=$(PI) -isystem $(PI)/usr/include/arm-linux-gnueabihf -isystem $(PI)/usr/include
+    TARGET_CPPFLAGS += --sysroot=$(PI) -I$(PI)/usr/include/arm-linux-gnueabihf -I$(PI)/usr/include
   endif
 endif
 
 ifeq ($(HOST_IS_ARM)$(TARGET_HAS_MALI),ny)
   # cross-crompiling for Cubieboard
-  TARGET_CPPFLAGS += --sysroot=$(CUBIE) -isystem $(CUBIE)/usr/include/arm-linux-gnueabihf
-  TARGET_CPPFLAGS += -isystem $(CUBIE)/usr/local/stow/sunxi-mali/include
+  TARGET_CPPFLAGS += --sysroot=$(CUBIE) -I$(CUBIE)/usr/include/arm-linux-gnueabihf
+  TARGET_CPPFLAGS += -I$(CUBIE)/usr/local/stow/sunxi-mali/include
 endif
 
 ifeq ($(TARGET_IS_KOBO),y)
@@ -676,7 +676,7 @@ endif
 
 ifeq ($(TARGET),ANDROID)
   TARGET_CPPFLAGS += --sysroot=$(ANDROID_SYSROOT)
-  TARGET_CPPFLAGS += -isystem $(ANDROID_SYSROOT)/usr/include/$(ANDROID_ABI4)
+  TARGET_CPPFLAGS += -I$(ANDROID_SYSROOT)/usr/include/$(ANDROID_ABI4)
   TARGET_CPPFLAGS += -DANDROID
   TARGET_CPPFLAGS += -D__ANDROID_API__=$(ANDROID_NDK_API)
   CXXFLAGS += -D__STDC_VERSION__=199901L

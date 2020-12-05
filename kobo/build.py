@@ -48,7 +48,7 @@ class Toolchain:
         common_flags = '-Os -g -ffunction-sections -fdata-sections -fvisibility=hidden ' + arch_cflags
         self.cflags = common_flags
         self.cxxflags = common_flags
-        self.cppflags = '-isystem ' + os.path.join(install_prefix, 'include') + ' -DNDEBUG ' + cppflags
+        self.cppflags = '-I' + os.path.join(install_prefix, 'include') + ' -DNDEBUG ' + cppflags
         self.ldflags = '-L' + os.path.join(install_prefix, 'lib') + ' ' + arch_ldflags
         self.libs = ''
 
