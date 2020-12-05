@@ -33,6 +33,10 @@ FREETYPE = y
 
 ifeq ($(USE_SDL2),y)
 $(eval $(call pkg-config-library,SDL,sdl2))
+USE_SDL2_BATTERY ?= y
+ifeq ($(USE_SDL2_BATTERY),y)
+SDL_CPPFLAGS += -DENABLE_SDL_BATTERY
+endif
 else
 $(eval $(call pkg-config-library,SDL,sdl))
 endif

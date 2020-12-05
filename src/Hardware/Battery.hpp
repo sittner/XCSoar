@@ -24,11 +24,7 @@ Copyright_License {
 #ifndef XCSOAR_HARDWARE_BATTERY_H
 #define XCSOAR_HARDWARE_BATTERY_H
 
-#ifdef ENABLE_SDL
-#include <SDL_version.h>
-#endif
-
-#if defined(ANDROID) || (defined(_WIN32_WCE) && !defined(GNAV)) || defined(KOBO) || (defined(ENABLE_SDL) && (SDL_MAJOR_VERSION >= 2))
+#if defined(ANDROID) || (defined(_WIN32_WCE) && !defined(GNAV)) || defined(KOBO) || defined(ENABLE_SDL_BATTERY)
 #define HAVE_BATTERY
 
 #include <stdbool.h>
